@@ -1,0 +1,17 @@
+pixels:
+  build: .
+  ports:
+    - "9001:9001"
+    - "5001:5001"
+  environment:
+    FORMS_MONGO_HOST: mongo
+  volumes:
+   - .:/usr/src/app
+  links:
+    - mongo:mongo
+  tty: true
+
+mongo:
+  image: mongo:latest
+  ports:
+    - "27017:27017"
